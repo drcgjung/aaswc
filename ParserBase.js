@@ -133,8 +133,16 @@ class ParserBase extends Base {
          var submodel = this.newTreeObject("Submodel" + i, submodels,
                                            "Submodel");
 
-         if (this.elementExists(SubElement, "idShort"))
+         if (this.elementExists(SubElement, "idShort")) {
             this.parseString(SubElement.idShort, "idShort", submodel);
+         } else if(this.elementExists(SubElement,"keys")) {
+            if(SubElement.keys.length>0) {
+                var key=SubElement.keys[0];
+                if(this.elementExists(key,"value")) {
+                    this.parseString(btoa(key.value),"idShort",submodel);
+                }
+            }
+         }
          // - endpoint.XYZ?
 
          this.addSubmodelURLS(submodel);
