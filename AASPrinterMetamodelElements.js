@@ -823,9 +823,8 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
    isLink(element) {
       if (typeof(element.tData) != "string")
          return false;
-      var url = "";
       try {
-         url = new URL(element.tData);
+         new URL(element.tData);
       }
       catch (_) {
          return false;
