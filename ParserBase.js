@@ -1029,19 +1029,25 @@ class ParserBase extends Base {
          this.parseAsset(JSON.asset, registryElement);
       }
 
-      // endpoint [Reference] - (0-1)
-      if (this.elementExists(JSON, "endpoint"))
+      if (this.elementExists(JSON, "endpoint")) {
          this.parseArray(JSON.endpoint,
                "endpoint",
                registryElement,
                this.parseKeys);
       // Bug endpoints -> endpoint
-      if (this.elementExists(JSON, "endpoints")) {
+      } else if (this.elementExists(JSON, "endpoints")) {
          console.log("Bug: endpoints instead of endpoint");
          this.parseArray(JSON.endpoints,
                "endpoint",
                registryElement,
                this.parseEndpoint);
+      } else if( this.elementExists(JSON,"idShort")) {
+         var endpoint = this.newTreeObject("endpoint", registryElement,
+         "Endpoint");
+         endpoint.type="Local Reference";
+         var address = this.newTreeObject("address", endpoint,
+         "Address");
+         address.tData=obj.tURL+ "/" + JSON.idShort + "/aas";
       }
 
       // submodelDescriptor [submodelDescriptor] - (0-n)

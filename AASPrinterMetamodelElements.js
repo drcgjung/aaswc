@@ -781,13 +781,27 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
 
    printEndpoint(HTMLElement, element, key) {
       var name = null;
-      if (this.elementExists(element.childObjs, "address"))
+      var hyperlink = null;
+      if (this.elementExists(element.childObjs, "address")) {
          name = new URL (element.childObjs.address.tData).origin;
-      else
+      } else
          name = "No Address set";
       var HTMLObject = this.printNode(HTMLElement, element, name, "",
           this.colors.referenceColor, false);
 
+      if (this.elementExists(element.childObjs, "address")) {
+         var linkElement = this.createHTMLLink(this.addAASBrowserURL(element,element.childObjs.address.tData),document.createTextNode(element.childObjs.address.tData));
+         var img = this.iconByType(element);
+         var content = [
+                  img,
+                  document.createTextNode("Remote Reference"),
+                  linkElement
+                  ];
+         this.createRowWithContent(HTMLObject.container,
+                                   new Array("col-auto","col-2", "col"),
+                                   content,
+                                   true);
+      }
       this.print(HTMLObject.container, element);
    }
 
