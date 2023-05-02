@@ -207,9 +207,6 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
          case "DataType":
             this.printDataType(HTMLElement, element, key);
             break;
-         case "Range":
-            this.printRange(HTMLElement, element, key);
-            break;
          case "ReferenceElement":
             this.printReferenceElement(HTMLElement, element, key);
             break;
@@ -248,9 +245,6 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
          /* Extra Elements from AAS Part 2 */
          case "AssetAdministrationShellDescriptor":
             this.printAssetAdministrationShellDescriptor(HTMLElement, element, key);
-            break;
-         case "SubmodelDescriptor":
-            this.printSubmodelDescriptor(HTMLElement, element, key);
             break;
          case "SubmodelDescriptor":
             this.printSubmodelDescriptor(HTMLElement, element, key);
