@@ -169,8 +169,10 @@ class AASListPrinter extends PrinterHtmlElements {
          node.title.contentRow.appendChild(div_img);
          
          for (var [key2, entry] of urlMap) {
-            this.printURLEntry(node.container, node.contentRow, entry, "URL", 
-               type);
+            if(key2) {
+                this.printURLEntry(node.container, node.contentRow, entry, "URL",
+                    type);
+            }
          }
       }
    }

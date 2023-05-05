@@ -120,7 +120,7 @@ class ParserBase extends Base {
          return;
       }
       
-      var submodelsTree = this.newTreeObject("submodels", object,
+      this.newTreeObject("submodels", object,
       "Submodels");
 
       var submodels = this.newPropertyObject("submodels", object,

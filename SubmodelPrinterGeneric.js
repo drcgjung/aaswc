@@ -27,5 +27,5 @@ class SubmodelPrinterGeneric extends AASPrinterMetamodelElements {
 
 
 function onLoadSubmodelPrinter() {
-   var submodelPrinter = new SubmodelPrinterGeneric();
+   return new SubmodelPrinterGeneric();
 }

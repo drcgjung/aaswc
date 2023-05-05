@@ -32,5 +32,5 @@ class AASPrinterGeneric extends AASPrinterMetamodelElements {
 
 
 function onLoadAASPrinter() {
-   var aasPrinter = new AASPrinterGeneric();
+   return new AASPrinterGeneric();
 }

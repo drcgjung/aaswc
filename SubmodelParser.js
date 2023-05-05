@@ -82,7 +82,7 @@ class SubmodelParser extends ParserBase {
       var nextURL = "";
       var nextRun = false;
       if (this.object.URLArray.data.length > 0) {
-         nextURL = this.object.URLArray.data[this.object.URLArray.data.length -1]
+         nextURL = this.object.URLArray.data[this.object.URLArray.data.length -1];
          this.object.URLArray.data.pop();
          nextRun = true;
       }

@@ -651,7 +651,6 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
    }
 
    createValueElement(object, valueName = null, update = false) {
-      var childObjs = object.childObjs;
       var bodyElement = null;
       var category = "CONSTANT";
       if (valueName == "value")
@@ -751,7 +750,6 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
    printRegistry(HTMLElement, object) {
       if (this.treeRoot == null)
          this.treeRoot = object;
-      var childObjs = object.childObjs;
 
       var HTMLObject = this.printNode(HTMLElement, object, "",
             "Asset Administration Shell Registry", this.colors.AASColor, true);
@@ -775,7 +773,6 @@ class AASPrinterMetamodelElements extends PrinterHtmlElements {
 
    printEndpoint(HTMLElement, element, key) {
       var name = null;
-      var hyperlink = null;
       if (this.elementExists(element.childObjs, "address")) {
          name = new URL (element.childObjs.address.tData).origin;
       } else

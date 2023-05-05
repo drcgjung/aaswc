@@ -31,5 +31,5 @@ class RegistryPrinterGeneric extends AASPrinterMetamodelElements {
 }
 
 function onLoadRegistryPrinter() {
-   var registrPrinter = new RegistryPrinterGeneric();
+   return new RegistryPrinterGeneric();
 }
